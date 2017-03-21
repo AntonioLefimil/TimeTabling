@@ -1,0 +1,25 @@
+Código;NRC;NombreCurso;Profesor;Capacidad;Tipo sala;Horario1;Periodo1;Horario2;Periodo2
+1234;1025;Calculo ;Eduardo Diaz;40;catedra;lunes;1;miercoles;1
+4321;1024;Algebra;Antonio Díaz;40;catedra;lunes;2;martes;2
+2342;1023;Calculo 2;Javier Hernández;40;catedra;lunes;3;miercoles;3
+3456;1022;Algebra 2;Elizabeth Herrera;40;laboratorio;jueves;4;jueves;5
+3232;1021;Lenguaje de programación;Alejandra Díaz;40;catedra;miercoles;1;viernes;5
+9634;1020;Estructura de datos;Werner Barrero;40;laboratorio;lunes;2;miercoles;7
+45234;1000;Sistema Operativo;Ivan Diaz;40;catedra;Martes;1;jueves;1
+7832;1001;Redes ;Patricio Reyes;40;catedra;Miercoles;2;Viernes;4
+4532;1002;Investigación operativa;Raul Rodriguez;40;catedra;Jueves;6;Jueves;5
+7853;1005;Calculo 3;Alvaro Reyes;40;laboratorio;Viernes;5;viernes;7
+3453;1004;Algebra 3;Nicolas Rojas;40;catedra;Lunes ;5;Miercoles;3
+4674;1006;Probabilidad y estadistica;Monica fuentes;40;laboratorio;Martes;2;Jueves;2
+7865;1007;Metodologia de software;Jimena Fuentes;40;catedra;miercoles;3;Miercoles;1
+5465;1008;Costo y presupuesto;Aron Barrera;40;catedra;jueves;7;Viernes;4
+4634;1009;Ingenieria economica;Ethan Diaz ;40;catedra;Viernes;1;Lunes;1
+6345;1010;Administración finaciera;Isabella Paz;40;laboratorio;Lunes;6;miercoles;3
+2341;1011;Topicos 1;Nicole Moreno;40;catedra;Martes;3;jueves;4
+4565;1012;Topicos 2;Maria Salas;40;laboratorio;miercoles;5;viernes;6
+7885;1013;Topicos 3;Gustavo Bahamondes;40;catedra;jueves;2;Jueves;2
+5643;1014;Responsabilidad social;Felipe Argomedo;40;catedra;Viernes;2;Viernes;4
+2538;1015;Electromagnetismo;amanda Briceño;40;catedra;Lunes;7;Martes;3
+7853;1016;Fisica 1;Rodrigo Diaz;40;laboratorio;Martes;5;Jueves;3
+2466;1017;Fisica 2;Manuel Oviedo;40;catedra;miercoles;4;Miercoles;2
+8787;1017;Fisica 3;Cristian Pino;40;laboratorio;jueves;1;Lunes;1

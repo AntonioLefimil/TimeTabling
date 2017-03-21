@@ -1,0 +1,136 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <title>Time Tabling</title>
+	    <link href='http://fonts.googleapis.com/css?family=Hind' rel='stylesheet' type='text/css'>
+	    <link href="webapp/views/style.css" rel="stylesheet">
+	    <link href="webapp/views/styleTable.css" rel="stylesheet">
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="webapp/views/js/jquery.min.js"></script>
+	    <script src="webapp/views/js/bootstrap.min.js"></script>
+	    <script src="webapp/views/js/spin.js"></script>
+	    <script src="webapp/views/js/jquery.sparkline.min.js"></script>
+	    <script src="webapp/views/js/functions.js"></script>
+		<script>
+			function cargarFicheros(){
+				$.getJSON('cargarFicheros.htm')
+				.fail(function(){alert("Ocurrio un error en el servidor");})
+				.done(function(d){
+					var n = d.length;
+					var k = 1;
+					for(var i = 2; i < n; i++){
+						$('<div>').addClass('row white')
+						.append($('<div>').addClass('cell').text(k))
+						.append($('<div>').addClass('cell').text(d[i].nombreArch))
+						.append($('<div>').addClass('cell').html('<input type="radio" name="rdAsign" value="'+d[i].nombreArch+'" />'))
+						.appendTo('#tablaArch');
+					k++;
+					}
+				});	   
+			}		
+			function mostrarArchivo(){
+				var archivo = $('input[name="rdArchivo"]:checked').val();
+				var impas 	= $('input[name="rdAsign"]:checked').val();
+				location.href = 'mostrarArchivo.htm?impas='+impas+'&archivo='+archivo;
+			}
+		$(function(){
+			cargarFicheros();
+			$( "#ArchExcel" ).hide();
+			$( "#verArch" ).hide();
+			$('#verArch').bind('click', function(event, ui){ mostrarArchivo(); });
+			$('#verAsign').bind('click', function(event, ui){
+				var sala  = $('input[name="rdAsign"]:checked').val();
+				$.getJSON('cargarAsign.htm',{'sala' : sala})
+				.fail(function(){alert("Ocurrio un error en el servidor");})
+				.done(function(d){
+					var n = d.length;
+					var k = 1;
+					for(var i = 3; i < 11; i++){
+						$( "div" ).remove(".remove");
+						$('<div>').addClass('row white')
+						.append($('<div>').addClass('cell').text(k))
+						.append($('<div>').addClass('cell').text(d[i].nombreArch))
+						.append($('<div>').addClass('cell').html('<input type="radio" name="rdArchivo" value="'+d[i].nombreArch+'" />'))
+						.appendTo('#ArchExcel');
+					k++;
+					$("#tablaArch").hide();
+					$("#verAsign").hide();
+					$("#ArchExcel" ).show();
+					$( "#verArch" ).show();
+					}
+				});
+		 	});
+		});
+	</script>
+    </head>
+  	<body>
+		<div id="header" class="col-md-12 text-center">
+			<i class="fa fa-cube fa-2x"></i>
+			<h4>Time Tabling</h4>
+		</div>
+		<div class="container">
+			<div class="col-md-12" style="height:60px">
+				<div class="well">
+					<div id="menu" class="col-md-12">
+						<nav class="navbar navbar-default">
+							<div class="container-fluid">
+								<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+									<ul class="nav navbar-nav navbar-right">
+										<li class="dropdown">
+											<a href="logout.htm" role="button" aria-expanded="false">Cerrar Sesion</a>
+										</li>                
+									</ul>
+								</div>
+							</div>
+						</nav>        
+					</div>
+					<div id="sidebar" class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading"><i class="fa fa-link"></i>  Menu</div>
+							<div class="panel-body panel-links">
+								<a href="home.htm"><i class="fa fa-code"></i> Incio</a>
+								<a href="gestion.htm"><i class="fa fa-code"></i> Gestion de Usuarios</a>
+								<a href="upArchivos.htm"><i class="fa fa-code"></i> Subir Archivos</a>
+								<a href="ejecutar.htm"><i class="fa fa-code"></i> Ejecutar Algoritmo</a>
+								<a href="reportes.htm"><i class="fa fa-code"></i> Ver Reportes</a>
+								<a href="asignaciones.htm"><i class="fa fa-code"></i> Ver Asignaciones</a>
+							</div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading"><i class="fa fa-font"></i> Integrantes</div>
+							<div class="panel-body panel-text">
+								<ul>
+									<li>Antonio Lefimil</li>
+									<li>Alvaro Faba</li>
+									<li>Gonzalo Cifuentes</li>
+									<li>Renzo Vilchez</li>
+									<li>Christopher Elgueta</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="admincontent" class="col-md-9" align="center">
+						<div id="tablaArch" class="table" >
+							<div class="row header blue">
+								<div class="cell">#</div>
+								<div class="cell">Nombre Asignacion</div>
+								<div class="cell">Seleccione</div>
+							</div>
+						</div>
+						<div id="ArchExcel" class="table"  style="height:115px; overflow: scroll">
+							<div id="remove" class="row header blue">
+								<div class="cell">#</div>
+								<div class="cell">Nombre Asignacion</div>
+								<div class="cell">Seleccione</div>
+							</div>
+						</div>
+						<a style="float:center;  margin-right:100px" ><button  class="btn btn-sm btn-info"  id="verAsign"><i class="fa fa-pencil"></i> Ver Horarios Generados</button></a>
+						<a style="float:center;  margin-right:100px" ><button  class="btn btn-sm btn-info"  id="verArch"><i class="fa fa-pencil"></i> Abrir Archivo Seleccionado</button></a>
+					</div>
+   				</div>
+      		</div>
+    	</div>
+	</body>
+</html>

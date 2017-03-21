@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<siteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="http://blackapps.cl/ofw/ofw.xsd">
+	
+	<!--LOGIN-->
+	<requestMapping name="signin.htm" 		class="HomeController"	method="login"	accessMethod="POST"/>
+	<requestMapping name="account.htm" 		class="HomeController"  method="account"/>
+	<requestMapping name="logout.htm" 		class="HomeController"  method="logout"/>
+	<requestMapping name="index.htm" 		class="HomeController"  method="index"/>
+	<requestMapping name="buscarUsuario.htm" class="HomeController" method="usuarioIn" ajaxResponse="json"/>
+	
+	<!-- USUARIO CONTROLLER -->
+	<requestMapping name="buscarUsuarios.htm" 		class="UsuarioController" method="buscarUsuarios" 	 ajaxResponse="json" />
+	<requestMapping name="addUsuario.htm" 			class="UsuarioController" method="addUsuario" 		 ajaxResponse="json" />
+	<requestMapping name="modificarUsuarios.htm" 	class="UsuarioController" method="modificarUsuarios" ajaxResponse="json" />
+	
+	<!--MODULO CENTRAL  -->
+	<requestMapping name="subirAulas.htm" 	class="CargarArchivosController" method="cargarAulas" 		accessMethod="POST"/>
+	<requestMapping name="subirCursos.htm"	class="CargarArchivosController" method="cargarAsignaturas" accessMethod="POST"/>
+	<requestMapping name="eje.htm" 			class="EjecutarController" 		 method="ejecutarAlgoritmo" ajaxResponse="json"/>
+	<requestMapping name="buscarCursos.htm" class="EjecutarController" 		 method="listarCursos" 		ajaxResponse="json"/>
+	<requestMapping name="buscarSalas.htm" 	class="EjecutarController" 		 method="listarSalas" 		ajaxResponse="json"/>
+	
+	<!-- ASIGNACION CONTROLLER -->
+	<requestMapping name="cargarFicheros.htm"    	class="AsignacionController" method="cargarFicheros" ajaxResponse="json"/>
+	<requestMapping name="cargarAsign.htm"			class="AsignacionController" method="cargarAsign" ajaxResponse="json"/>
+
+	<!--MANEJO ARCHIVO CONTROLLER -->
+	<requestMapping name="mostrarArchivo.htm" 		class="AsignacionController" method="mostrarArchivo" />
+
+	<!--REPORTE CONTROLLER-->
+	<requestMapping name="reporte.htm" class="reporteController" method="movArchReporte"  ajaxResponse="json"/>
+	<!-- MENU MAPPING -->
+	<requestMapping name="home.htm" 			class="MenuController" method="home" />
+	<requestMapping name="gestion.htm" 			class="MenuController" method="gestionUsuarios" />
+	<requestMapping name="upArchivos.htm" 		class="MenuController" method="subirArchivos" />
+	<requestMapping name="ejecutar.htm" 		class="MenuController" method="ejecutarAlgoritmo" />
+	<requestMapping name="usuario.htm" 		  	class="MenuController" method="usuario" />
+	<requestMapping name="updateUser.htm" 	    class="MenuController" method="ActualizarUsuario" />
+	<requestMapping name="verFicherosAsig.htm"  class="MenuController" method="ficherosAsignacion"/>
+	<requestMapping name="reportes.htm" 		class="MenuController" method="Reportes"/>
+	<requestMapping name="asignaciones.htm"     class="MenuController" method="Asignaciones"/>
+	<requestMapping name="upArchivosDir.htm" 	class="MenuController" method="subirArchivosDir"/>
+	<requestMapping name="reportesDir.htm" 		class="MenuController" method="reportesDir"/>
+	<requestMapping name="asignacionesDir.htm"  class="MenuController" method="verFicherosDir"/>
+	
+</siteMap> 
